@@ -7,7 +7,16 @@ from sklearn.metrics import r2_score
 
 
 
+
+
 from src.exception import CustomException
+import dill
+
+def load_object(file_path):
+    with open(file_path, 'rb') as file_obj:
+        obj = dill.load(file_obj)
+    return obj
+
 
 def save_object(file_path,obj):
     try:
